@@ -1,0 +1,22 @@
+function getText(n){
+	//repeated string concatenation can be inefficient, so we collect
+	//the value of all text nodes into an array , and then concatenate
+	//the elements of that array all at once
+
+ var string = [];
+ getStrings(n, strings);
+ return strings.join("");
+ 
+ //this recursive function finds all text nodes 
+ //and appends their text to an array.
+ function getStrings(n, strings) {
+ 	if(n.nodeType == 3 )
+ 		strings.push(n.data);
+ 	else if(n.nodeType == 1){
+ 		//Note iteration with first child/nextSibling
+ 		for(var m = n.firstChild; m!=null; m= m.nextSibling){
+ 			getStrings(m,strings);
+ 			}
+ 		}
+ 	}
+ }

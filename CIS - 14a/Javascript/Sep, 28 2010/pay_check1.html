@@ -1,0 +1,42 @@
+<!--
+Constructs
+	Sequential
+	Branching-Jump
+		If,If-else,Switch
+	Repetition-looping
+		For,while, Do while
+-->
+
+
+<html>
+<head>
+	<title>Paycheck</title>
+	</head>
+	
+	<body>
+	<script type="text/javascript">
+	//calculating a paycheck
+	//initialize known values
+	var hours_worked=50;//Hours
+	var pay_rate=10;//Dollars
+	var over_time=40//Time when overtime starts Hours
+	var over_rate=1.5//Overtime rate
+	//Paycheck calculation and print out
+	var pay_check=hours_worked*pay_rate;
+	if(hours_worked>over_time)pay_check+=(hours_worked-over_time)*(over_rate-1)*pay_rate;
+	//Output the results
+	document.write("<h1>Hours Worked="+hours_worked+" (hrs)</h1>");
+	document.write("<h1>Hours Worked="+pay_rate+" ($/hrs)</h1>");
+	document.write("<h1>Gross Pay Check=$"+pay_check.toFixed(2)+"</h1>");
+	//Now we will calculate the net pay which accounts for taxes
+	var tax_rate=.1;//percentage of the gross
+	var class_envy=400//class envy rate
+	var class_rate=2//Rich mans penalty
+	//Now calculate the taxes
+	var tax=pay_check*tax_rate;
+	if(pay_check>class_envy){tax+=(pay_check-class_envy)*(class_rate-1)*tax_rate;}
+	pay_check-=tax;
+	document.write("<h1>Net Pay Check=$"+pay_check.toFixed(2)+"</h1>");
+	</script>
+	</body>
+	</html>

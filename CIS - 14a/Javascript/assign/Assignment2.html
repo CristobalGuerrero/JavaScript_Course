@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>Home Page</title>
+<link href="../CSS/main.css" rel="stylesheet" type="text/css" />	
+	</head>
+	
+	<body>
+		<h1><img id="banner" src="../images/banner2.jpeg" alt="banner"></h1>
+		<div class="navigate">
+			<h3>Homework Assignments</h3>
+			<p><a href="../index.html"><b>Home</b></a></p>
+			<p><a href="Assignment1.html"><img src="../images/ASS1.gif" alt="run run run!!!">Assignment 1</a></p>
+			<p><a href="Assignment2.html"><img src="../images/ASS2.gif" alt="run run run!!!">Assignment 2</a></p>
+			<p><a href="Assignment3.html"><img src="../images/ASS3.gif" alt="run run run!!!">Assignment 3</a></p>
+			<p><a href="../Project/project.html"><img src="../images/proj.gif" alt="run run run!!!">Project</a></p>
+		</div>
+		<div class="substance">
+	<script type="text/javascript">
+	//This is for computing the hourly pay for a worker
+	var hour=[10,30,50], pay=10, dtime=20, ttime=40, total=[0,0,0], j=0, arrays=3;
+	for(j = 0; j < arrays; j++){
+	//This is short hand for an if statement within another
+	(hour[j]<dtime?total[j]=hour[j]*pay:
+							(hour[j]<ttime?total[j]+=dtime*pay+(hour[j]-dtime)*pay*2:
+							total[j]+=dtime*pay+(ttime-dtime)*pay*2+pay*3*(hour[j]-ttime)));
+	}
+	for(j = 0; j<arrays;j++){
+	//displays the pay per hours with an array
+	document.write('<p align="center">Your pay for working '
+					+hour[j]+' hours is: $'+total[j].toFixed(2)+'</p>');}
+					
+	var x=new Boolean(1);
+	var y=new Boolean(1);
+	var i=1;
+	document.write('<table border="3", table align="center" cellpadding="10">');
+	document.write('<tr>');
+	document.write('<th>x</th>');
+	document.write('<th>y</th>');
+	document.write('<th>!x</th>');
+	document.write('<th>x&&y</th>');
+	document.write('<th>x||y</th>');
+	document.write('<th>x^y</th>');
+	document.write('<th>x^y^y</th>');
+	document.write('<th>x^y^x</th>');
+	document.write("</tr>");
+	for(i = 1; i <= 4; i++)
+{
+	document.write('<tr>')
+	document.write('<td align="center">'+(x?'T':'F')+'</td>');
+	document.write('<td align="center">'+(y?'T':'F')+'</td>');
+	document.write('<td align="center">'+(!x?'T':'F')+'</td>');
+	document.write('<td align="center">'+(x&&y?'T':'F')+'</td>');
+	document.write('<td align="center">'+(x||y?'T':'F')+'</td>');
+	document.write('<td align="center">'+(x^y?'T':'F')+'</td>');
+	document.write('<td align="center">'+((x^y)^y?'T':'F')+'</td>');
+	document.write('<td align="center">'+((x^y)^x?'T':'F')+'</td>');
+	document.write('</tr>');
+	x=(i>=2&&i%4)?x=0:x=1;
+	y=(i%2)?y=0:y=1;
+}
+	document.write("</table>");
+	document.write("<p align='center'><a href='#TOP'> Back to top</a></p>");
+	</script>
+		</div>
+	</body>
+	</html>
+	

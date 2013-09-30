@@ -1,0 +1,510 @@
+<html>
+<!-- The cookie and the js page was used from the following website http://javascript.internet.com/cookies/n-browser.html -->
+<head>
+	<title>Project</title>
+	<link href="../CSS/main.css" rel="stylesheet" type="text/css" />
+	<title>Project Work in Progress</title>
+	<script type="text/javascript" src="browserInfo.js"></script>
+	<script type="text/javascript">
+	var computer = new Array(4);
+	var answer = new Array(8);
+	answer[0]=new Array(4);
+	answer[1]=new Array(4);
+	answer[2]=new Array(4);
+	answer[3]=new Array(4);
+	answer[4]=new Array(4);
+	answer[5]=new Array(4);
+	answer[6]=new Array(4);
+	answer[7]=new Array(4);
+	var board = new Array(4);
+	var size = 4, height = 8, row, col, currentAnswer = 0, illegal = 0,counter=0;
+	var Random = new Boolean();
+
+	function Randomset()
+    {
+     var j=1,i=0;
+     while(j<size+1)
+     {
+        while(i<j)
+        {
+            if(computer[i]==computer[j])
+               {
+                computer[i]=Math.floor(Math.random()*6)+1;
+               }
+            else{i++;}
+        }
+        i=0;
+        j++;
+     }
+    }
+    
+    function answerSet()
+    {
+    	var counter=0,i=0,j=1;
+    	while(j<4)
+    	{
+        	while(i<j)
+        	{
+        	 if(computer[i]!=computer[j])
+        	    {
+        	       //first loop +4 second 
+        	       counter++;
+        	    }
+        	    i++;
+            }
+        i=0;
+      	j++;
+      }
+    	if(counter==6){return true;}
+    	else{return false;}
+    }
+
+    
+    function display()
+    {
+    	do{
+    	Randomset();
+    	Random=answerSet();
+    	}while(!Random);
+    	/*for(var i=0;i<size;i++)
+    		{
+    			document.write(computer[i]);
+    		}*/
+    	//writeTable();
+    }
+    	
+    /* function writeTable()
+    {
+    	document.write('<table border=2 height=50 width = 50>');
+    		for(var i=0;i<height;i++)
+    			{
+    				document.write("<tr>");
+    					for(var j=0;j<size;j++)
+    						{
+    							document.write("<td><img src='../images/black.jpeg'></td>");
+    						}
+    				document.write("</tr>");
+    			}
+    	document.write("</table>");
+    } */
+    
+    function checkans(ansno) 
+    {
+    	illegal=0,white=0,red=0,counter++;
+			if(answer[ansno][0]==answer[ansno][1]||answer[ansno][0]==answer[ansno][2]||answer[ansno][0]==answer[ansno][2]||
+				answer[ansno][1]==answer[ansno][2]||answer[ansno][1]==answer[ansno][3]||
+				answer[ansno][2]==answer[ansno][3])
+			{
+				illegal=1;
+			}
+			
+			if(illegal==1)
+			{
+				window.alert("You have used the same color more than once");
+				counter--;
+			}
+			
+			
+			for(var j=0;j<size;j++)
+			{
+				for(var i=0;i<size;i++)
+				{
+					if(answer[ansno][i]==computer[j])
+						{
+							//window.alert("There's a white one in spot: ");
+							white++;
+						}
+				}
+			}
+			
+			for(var i=0;i<size;i++)
+			{
+				if(answer[ansno][i]==computer[i])
+					{
+						white--;
+						red++;
+					}
+			}
+			//test to see the number amount of each number correct
+			//window.alert(white);
+			//window.alert(red);
+			if(ansno==0&&counter==1)
+			{
+			for(var i=1;i<=white;i++)
+			{
+				if(i==1){document.tlone.src="../images/white.jpeg";}
+				if(i==2){document.trone.src="../images/white.jpeg";}
+				if(i==3){document.blone.src="../images/white.jpeg";}
+				if(i==4){document.brone.src="../images/white.jpeg";}
+			}
+			for(var i=white+1;i<=red+white;i++)
+			{
+				if(i==1){document.tlone.src="../images/red.jpeg";}
+				if(i==2){document.trone.src="../images/red.jpeg";}
+				if(i==3){document.blone.src="../images/red.jpeg";}
+				if(i==4){document.brone.src="../images/red.jpeg";}
+			}
+			}
+			
+			else if(ansno==1&&counter==2)
+			{
+			for(var i=1;i<=white;i++)
+			{
+				if(i==1){document.tltwo.src="../images/white.jpeg";}
+				if(i==2){document.trtwo.src="../images/white.jpeg";}
+				if(i==3){document.bltwo.src="../images/white.jpeg";}
+				if(i==4){document.brtwo.src="../images/white.jpeg";}
+			}
+			for(var i=white+1;i<=red+white;i++)
+			{
+				if(i==1){document.tltwo.src="../images/red.jpeg";}
+				if(i==2){document.trtwo.src="../images/red.jpeg";}
+				if(i==3){document.bltwo.src="../images/red.jpeg";}
+				if(i==4){document.brtwo.src="../images/red.jpeg";}
+			}
+			}
+			
+			else if(ansno==2&&counter==3)
+			{
+			for(var i=1;i<=white;i++)
+			{
+				if(i==1){document.tlthree.src="../images/white.jpeg";}
+				if(i==2){document.trthree.src="../images/white.jpeg";}
+				if(i==3){document.blthree.src="../images/white.jpeg";}
+				if(i==4){document.brthree.src="../images/white.jpeg";}
+			}
+			for(var i=white+1;i<=red+white;i++)
+			{
+				if(i==1){document.tlthree.src="../images/red.jpeg";}
+				if(i==2){document.trthree.src="../images/red.jpeg";}
+				if(i==3){document.blthree.src="../images/red.jpeg";}
+				if(i==4){document.brthree.src="../images/red.jpeg";}
+			}
+			}
+			
+			else if(ansno==3&&counter==4)
+			{
+			for(var i=1;i<=white;i++)
+			{
+				if(i==1){document.tlfour.src="../images/white.jpeg";}
+				if(i==2){document.trfour.src="../images/white.jpeg";}
+				if(i==3){document.blfour.src="../images/white.jpeg";}
+				if(i==4){document.brfour.src="../images/white.jpeg";}
+			}
+			for(var i=white+1;i<=red+white;i++)
+			{
+				if(i==1){document.tlfour.src="../images/red.jpeg";}
+				if(i==2){document.trfour.src="../images/red.jpeg";}
+				if(i==3){document.blfour.src="../images/red.jpeg";}
+				if(i==4){document.brfour.src="../images/red.jpeg";}
+			}
+			}
+			
+			else if(ansno==4&&counter==5)
+			{
+			for(var i=1;i<=white;i++)
+			{
+				if(i==1){document.tlfive.src="../images/white.jpeg";}
+				if(i==2){document.trfive.src="../images/white.jpeg";}
+				if(i==3){document.blfive.src="../images/white.jpeg";}
+				if(i==4){document.brfive.src="../images/white.jpeg";}
+			}
+			for(var i=white+1;i<=red+white;i++)
+			{
+				if(i==1){document.tlfive.src="../images/red.jpeg";}
+				if(i==2){document.trfive.src="../images/red.jpeg";}
+				if(i==3){document.blfive.src="../images/red.jpeg";}
+				if(i==4){document.brfive.src="../images/red.jpeg";}
+			}
+			}
+			
+			else if(ansno==5&&counter==6)
+			{
+			for(var i=1;i<=white;i++)
+			{
+				if(i==1){document.tlsix.src="../images/white.jpeg";}
+				if(i==2){document.trsix.src="../images/white.jpeg";}
+				if(i==3){document.blsix.src="../images/white.jpeg";}
+				if(i==4){document.brsix.src="../images/white.jpeg";}
+			}
+			for(var i=white+1;i<=red+white;i++)
+			{
+				if(i==1){document.tlsix.src="../images/red.jpeg";}
+				if(i==2){document.trsix.src="../images/red.jpeg";}
+				if(i==3){document.blsix.src="../images/red.jpeg";}
+				if(i==4){document.brsix.src="../images/red.jpeg";}
+			}
+			}
+			
+			else if(ansno==6&&counter==7)
+			{
+			for(var i=1;i<=white;i++)
+			{
+				if(i==1){document.tlseven.src="../images/white.jpeg";}
+				if(i==2){document.trseven.src="../images/white.jpeg";}
+				if(i==3){document.blseven.src="../images/white.jpeg";}
+				if(i==4){document.brseven.src="../images/white.jpeg";}
+			}
+			for(var i=white+1;i<=red+white;i++)
+			{
+				if(i==1){document.tlseven.src="../images/red.jpeg";}
+				if(i==2){document.trseven.src="../images/red.jpeg";}
+				if(i==3){document.blseven.src="../images/red.jpeg";}
+				if(i==4){document.brseven.src="../images/red.jpeg";}
+			}
+			}
+			
+			else if(ansno==7&&counter==8)
+			{
+			for(var i=1;i<=white;i++)
+			{
+				if(i==1){document.tleight.src="../images/white.jpeg";}
+				if(i==2){document.treight.src="../images/white.jpeg";}
+				if(i==3){document.bleight.src="../images/white.jpeg";}
+				if(i==4){document.breight.src="../images/white.jpeg";}
+			}
+			for(var i=white+1;i<=red+white;i++)
+			{
+				if(i==1){document.tleight.src="../images/red.jpeg";}
+				if(i==2){document.treight.src="../images/red.jpeg";}
+				if(i==3){document.bleight.src="../images/red.jpeg";}
+				if(i==4){document.breight.src="../images/red.jpeg";}
+			}
+				if(red!=4)
+			{
+				window.alert("You lost the game!")
+				showans();
+			}
+			}
+			
+			
+			if(answer[ansno][0]==computer[0]&&answer[ansno][1]==computer[1]&&answer[ansno][2]==computer[2]&&answer[ansno][3]==computer[3])
+			{
+				window.alert("You won the game!")
+				showans();
+			}
+    }
+    
+    function answerArray(row, col, color)
+    {
+		(color==document.blue.src)?answer[row][col]=1:0;
+		(color==document.white.src)?answer[row][col]=2:0;
+		(color==document.yellow.src)?answer[row][col]=3:0;
+		(color==document.pink.src)?answer[row][col]=4:0;
+		(color==document.green.src)?answer[row][col]=5:0;
+		(color==document.orange.src)?answer[row][col]=6:0;	
+    }
+    
+    function showans()
+    {
+    	(computer[0]==1)?document.first.src="../images/blue.jpeg":0;
+    	(computer[0]==2)?document.first.src="../images/white.jpeg":0;
+    	(computer[0]==3)?document.first.src="../images/yellow.jpeg":0;
+    	(computer[0]==4)?document.first.src="../images/red.jpeg":0;
+    	(computer[0]==5)?document.first.src="../images/green.jpeg":0;
+    	(computer[0]==6)?document.first.src="../images/orange.jpeg":0;
+    	(computer[1]==1)?document.second.src="../images/blue.jpeg":0;
+    	(computer[1]==2)?document.second.src="../images/white.jpeg":0;
+    	(computer[1]==3)?document.second.src="../images/yellow.jpeg":0;
+    	(computer[1]==4)?document.second.src="../images/red.jpeg":0;
+    	(computer[1]==5)?document.second.src="../images/green.jpeg":0;
+    	(computer[1]==6)?document.second.src="../images/orange.jpeg":0;
+    	(computer[2]==1)?document.third.src="../images/blue.jpeg":0;
+    	(computer[2]==2)?document.third.src="../images/white.jpeg":0;
+    	(computer[2]==3)?document.third.src="../images/yellow.jpeg":0;
+    	(computer[2]==4)?document.third.src="../images/red.jpeg":0;
+    	(computer[2]==5)?document.third.src="../images/green.jpeg":0;
+    	(computer[2]==6)?document.third.src="../images/orange.jpeg":0;
+    	(computer[3]==1)?document.fourth.src="../images/blue.jpeg":0;
+    	(computer[3]==2)?document.fourth.src="../images/white.jpeg":0;
+    	(computer[3]==3)?document.fourth.src="../images/yellow.jpeg":0;
+    	(computer[3]==4)?document.fourth.src="../images/red.jpeg":0;
+    	(computer[3]==5)?document.fourth.src="../images/green.jpeg":0;
+    	(computer[3]==6)?document.fourth.src="../images/orange.jpeg":0;
+	}
+
+	</script>	
+	</head>
+	
+	<body>
+		<h1 ><img id="banner" src="../images/banner2.jpeg" alt="banner"></h1>
+		<div class="navigate">
+			<h3>Homework Assignments</h3>
+			<p><a href="../index.html"><b>Home</b></a></p>
+			<p><a href="../assign/Assignment1.html"><img src="../images/ASS1.gif" alt="run run run!!!">Assignment 1</a></p>
+			<p><a href="../assign/Assignment2.html"><img src="../images/ASS2.gif" alt="run run run!!!">Assignment 2</a></p>
+			<p><a href="../assign/Assignment3.html"><img src="../images/ASS3.gif" alt="run run run!!!">Assignment 3</a></p>
+            <p><a href="project.html"><img src="../images/proj.gif" alt="run run run!!!">Project</a></p>
+		</div>
+		<div class="substance">
+			<p>My Project is to recreate the game called mastermind. So far the work that has been done is that<br><br>
+			4 numbers that consist of 1-6 will be generated. There is a Boolean check to make sure that the numbers<br><br>
+			are not repeating. If the numbers repeat which ever index of the array that is caring the data will be<br><br>
+			regenerated until there are no repeating elements. The numbers will then be replaced with colors as well<br><br>
+			as images for the finalized project.<br><br>
+			So far I have a number generator as you can see below by constantly refreshing the pages the numbers
+			are always randomized:<br><br></p>
+
+			<form method="post" action="">
+			<textarea name="comments" cols="15" rows="1" style="height: 1.5em;"></textarea>
+			<input type="submit" value="Submit" />
+			</form>
+		<p>Here is what I have for the game so far you are able to quit the game and that's pretty much it so far >_>;;;</p>
+		
+<script type="text/javascript">
+<!--
+document.write('<font size="+3">Hey '+username+'!</font>');
+if (username == "WebSurfer") {
+  document.write('</font><br><small><a href="http://cookies.javascriptsource.com/n-browser.html" target="_top">personalize</A> your greeting!</small>')
+}
+//-->
+</script>
+<p>
+You're Using:</p>
+<script type="text/javascript">
+<!--
+document.write('<br> '+ navigator.appName + ' (<i>' + navigator.appCodeName + '</i>) version ' + navigator.appVersion + '.')
+//-->
+</script>
+
+		<table cellspacing="10" cellpadding="5"><tr><td>
+	<table><tr><td>
+	<table border="1" align="center" bgcolor="black" >
+		<tr>
+			<td width="30"><img src="../images/black.jpeg" name="first"></td>
+			<td width="30"><img src="../images/black.jpeg" name="second"></td>
+			<td width="30"><img src="../images/black.jpeg" name="third"></td>
+			<td width="30"><img src="../images/black.jpeg" name="fourth"></td>
+			<td colspan="2"><center><input type="button" value="Quit" onclick="showans();window.alert('Try again next time!')"></center></td>
+		</tr>
+		<tr>
+			<td><img src="../images/black.jpeg" onclick="document.onexone.src=document.color.src;answerArray(0,0,document.onexone.src)" name="onexone"></td>
+			<td><img src="../images/black.jpeg" onclick="document.onextwo.src=document.color.src;answerArray(0,1,document.onextwo.src)" name="onextwo"></td>
+			<td><img src="../images/black.jpeg" onclick="document.onexthree.src=document.color.src;answerArray(0,2,document.onexthree.src)" name="onexthree"></td>
+			<td><img src="../images/black.jpeg" onclick="document.onexfour.src=document.color.src;answerArray(0,3,document.onexfour.src)" name="onexfour"></td>
+		<td>
+	    	<table cellspacing="0" cellpadding="0">
+	    		<tr><td><img src="../images/black.jpeg" name="tlone"></td><td><img src="../images/black.jpeg" name="trone"></td></tr>
+	    		<tr><td><img src="../images/black.jpeg" name="blone"></td><td><img src="../images/black.jpeg" name="brone"></td></tr>
+	    	</table>
+		</td>
+			<td><input type="button" value="Attempt 1" onclick="checkans(0)"></td>
+		</tr>
+		<tr>
+			<td><img src="../images/black.jpeg" onclick="document.twoone.src=document.color.src;answerArray(1,0,document.twoone.src)" name="twoone"></td>
+			<td><img src="../images/black.jpeg" onclick="document.twotwo.src=document.color.src;answerArray(1,1,document.twotwo.src)" name="twotwo"></td>
+			<td><img src="../images/black.jpeg" onclick="document.twothree.src=document.color.src;answerArray(1,2,document.twothree.src)" name="twothree"></td>
+			<td><img src="../images/black.jpeg" onclick="document.twofour.src=document.color.src;answerArray(1,3,document.twofour.src)" name="twofour"></td>
+		<td>
+	    	<table cellspacing="0" cellpadding="0">
+	    		<tr><td><img src="../images/black.jpeg" name="tltwo"></td><td><img src="../images/black.jpeg" name="trtwo"></td></tr>
+	    		<tr><td><img src="../images/black.jpeg" name="bltwo"></td><td><img src="../images/black.jpeg" name="brtwo"></td></tr>
+	    	</table>
+		</td>
+			<td><input type="button" value="Attempt 2" onclick="checkans(1)"></td>
+		</tr>
+		<tr>
+			<td><img src="../images/black.jpeg" onclick="document.threeone.src=document.color.src;answerArray(2,0,document.threeone.src)" name="threeone"></td>
+			<td><img src="../images/black.jpeg" onclick="document.threetwo.src=document.color.src;answerArray(2,1,document.threetwo.src)" name="threetwo"></td>
+			<td><img src="../images/black.jpeg" onclick="document.threethree.src=document.color.src;answerArray(2,2,document.threethree.src)" name="threethree"></td>
+			<td><img src="../images/black.jpeg" onclick="document.threefour.src=document.color.src;answerArray(2,3,document.threefour.src)" name="threefour"></td>
+		<td>
+	    	<table cellspacing="0" cellpadding="0">
+	    		<tr><td><img src="../images/black.jpeg" name="tlthree"></td><td><img src="../images/black.jpeg" name="trthree"></td></tr>
+	    		<tr><td><img src="../images/black.jpeg" name="blthree"></td><td><img src="../images/black.jpeg" name="brthree"></td></tr>
+	    	</table>
+		</td>
+			<td><input type="button" value="Attempt 3" onclick="checkans(2)"></td>
+		</tr>
+		<tr>
+			<td><img src="../images/black.jpeg" onclick="document.fourone.src=document.color.src;answerArray(3,0,document.fourone.src)" name="fourone"></td>
+			<td><img src="../images/black.jpeg" onclick="document.fourtwo.src=document.color.src;answerArray(3,1,document.fourtwo.src)" name="fourtwo"></td>
+			<td><img src="../images/black.jpeg" onclick="document.fourthree.src=document.color.src;answerArray(3,2,document.fourthree.src)" name="fourthree"></td>
+			<td><img src="../images/black.jpeg" onclick="document.fourfour.src=document.color.src;answerArray(3,3,document.fourfour.src)" name="fourfour"></td>
+		<td>
+	    	<table cellspacing="0" cellpadding="0">
+	    		<tr><td><img src="../images/black.jpeg" name="tlfour"></td><td><img src="../images/black.jpeg" name="trfour"></td></tr>
+	    		<tr><td><img src="../images/black.jpeg" name="blfour"></td><td><img src="../images/black.jpeg" name="brfour"></td></tr>
+	    	</table>
+		</td>
+			<td><input type="button" value="Attempt 4" onclick="checkans(3)"></td>
+		</tr>
+		<tr>
+			<td><img src="../images/black.jpeg" onclick="document.fiveone.src=document.color.src;answerArray(4,0,document.fiveone.src)" name="fiveone"></td>
+			<td><img src="../images/black.jpeg" onclick="document.fivetwo.src=document.color.src;answerArray(4,1,document.fivetwo.src)" name="fivetwo"></td>
+			<td><img src="../images/black.jpeg" onclick="document.fivethree.src=document.color.src;answerArray(4,2,document.fivethree.src)" name="fivethree"></td>
+			<td><img src="../images/black.jpeg" onclick="document.fivefour.src=document.color.src;answerArray(4,3,document.fivefour.src)" name="fivefour"></td>
+		<td>
+	    	<table cellspacing="0" cellpadding="0">
+				<tr><td><img src="../images/black.jpeg" name="tlfive"></td><td><img src="../images/black.jpeg" name="trfive"></td></tr>
+				<tr><td><img src="../images/black.jpeg" name="blfive"></td><td><img src="../images/black.jpeg" name="brfive"></td></tr>
+			</table>
+		</td>
+			<td><input type="button" value="Attempt 5" onclick="checkans(4)"></td>
+		</tr>
+		<tr>
+			<td><img src="../images/black.jpeg" onclick="document.sixone.src=document.color.src;answerArray(5,0,document.sixone.src)" name="sixone"></td>
+			<td><img src="../images/black.jpeg" onclick="document.sixtwo.src=document.color.src;answerArray(5,1,document.sixtwo.src)" name="sixtwo"></td>
+			<td><img src="../images/black.jpeg" onclick="document.sixthree.src=document.color.src;answerArray(5,2,document.sixthree.src)" name="sixthree"></td>
+			<td><img src="../images/black.jpeg" onclick="document.sixfour.src=document.color.src;answerArray(5,3,document.sixfour.src)" name="sixfour"></td>
+		<td>
+	    	<table cellspacing="0" cellpadding="0">
+	    		<tr><td><img src="../images/black.jpeg" name="tlsix"></td><td><img src="../images/black.jpeg" name="trsix"></td></tr>
+	    		<tr><td><img src="../images/black.jpeg" name="blsix"></td><td><img src="../images/black.jpeg" name="brsix"></td></tr>
+	    	</table>
+		</td>
+			<td><input type="button" value="Attemp 6" onclick="checkans(5)"></td>
+		</tr>
+		<tr>
+			<td><img src="../images/black.jpeg" onclick="document.sevenone.src=document.color.src;answerArray(6,0,document.sevenone.src)" name="sevenone"></td>
+			<td><img src="../images/black.jpeg" onclick="document.seventwo.src=document.color.src;answerArray(6,1,document.seventwo.src)" name="seventwo"></td>
+			<td><img src="../images/black.jpeg" onclick="document.seventhree.src=document.color.src;answerArray(6,2,document.seventhree.src)" name="seventhree"></td>
+			<td><img src="../images/black.jpeg" onclick="document.sevenfour.src=document.color.src;answerArray(6,3,document.sevenfour.src)" name="sevenfour"></td>
+		<td>
+	    	<table cellspacing="0" cellpadding="0">
+	    		<tr><td><img src="../images/black.jpeg" name="tlseven"></td><td><img src="../images/black.jpeg" name="trseven"></td></tr>
+	    		<tr><td><img src="../images/black.jpeg" name="blseven"></td><td><img src="../images/black.jpeg" name="brseven"></td></tr>
+	    	</table>
+		</td>
+			<td><input type="button" value="Attemp 7" onclick="checkans(6)"></td>
+		</tr>
+		<tr>
+			<td><img src="../images/black.jpeg" onclick="document.eightone.src=document.color.src;answerArray(7,0,document.eightone.src)" name="eightone"></td>
+			<td><img src="../images/black.jpeg" onclick="document.eighttwo.src=document.color.src;answerArray(7,1,document.eighttwo.src)" name="eighttwo"></td>
+			<td><img src="../images/black.jpeg" onclick="document.eightthree.src=document.color.src;answerArray(7,2,document.eightthree.src)" name="eightthree"></td>
+			<td><img src="../images/black.jpeg" onclick="document.eightfour.src=document.color.src;answerArray(7,3,document.eightfour.src)" name="eightfour"></td>
+		<td>
+	    	<table cellspacing="0" cellpadding="0">
+	    		<tr><td><img src="../images/black.jpeg" name="tleight"></td><td><img src="../images/black.jpeg" name="treight"></td></tr>
+	    		<tr><td><img src="../images/black.jpeg" name="bleight"></td><td><img src="../images/black.jpeg" name="breight"></td></tr>
+	    	</table>
+		</td>
+			<td><input type="button" value="Attempt 8" onclick="checkans(7)"></td>
+		</tr>
+		</table>
+
+		<table>
+		<td colspan="4"><p>Colors to choose from:</p></td>
+		<tr>
+			<td><img src="../images/blue.jpeg" onclick="document.color.src='../images/blue.jpeg'" name="blue"></td>
+			<td><img src="../images/white.jpeg" onclick="document.color.src='../images/white.jpeg'" name="white"></td>
+			<td><img src="../images/yellow.jpeg" onclick="document.color.src='../images/yellow.jpeg'" name="yellow"></td>
+		</tr>
+		<tr>
+			<td><img src="../images/red.jpeg" onclick="document.color.src='../images/red.jpeg'" name="pink"></td>
+			<td><img src="../images/green.jpeg" onclick="document.color.src='../images/green.jpeg'" name="green"></td>
+			<td><img src="../images/orange.jpeg" onclick="document.color.src='../images/orange.jpeg'" name="orange"></td>
+		</tr>
+		<tr>
+			<td colspan="3"><p>Chosen color:</p></td>
+			<td><img src="../images/black.jpeg" name="color"></td>
+			<input type="button" value="new game" onclick="history.go();">
+		</tr>
+		</table>
+	<script type="text/javascript">
+	//This is to check if the numbers are displayed correctly as colors
+	display();
+	</script>
+		</div>
+	</body>
+	</html>

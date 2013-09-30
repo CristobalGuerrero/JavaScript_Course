@@ -1,0 +1,14 @@
+//This function recursively looks at node n and its descendants,
+//converting all text node data to uppercase
+function upcase(n){
+	if(n.nodeType==3){
+		n.data = n.data.toUpperCase();
+	}
+	else {
+		// if the node is not a text node, loop through its children 
+		//recursively call this function on each child
+		var kids = n.childNodes;
+		for(var i = 0; i<kids.length; i++) upcase(kids[i]);
+	}
+}
+	

@@ -1,0 +1,82 @@
+<html>
+<head>
+	<title>Home Page</title>
+<link href="../CSS/main.css" rel="stylesheet" type="text/css" />	
+	</head>
+	
+	<body>
+		<h1><img id="banner" src="../images/banner2.jpeg" alt="banner"></h1>
+		<div class="navigate">
+			<h3>Homework Assignments</h3>
+			<p><a href="../index.html"><b>Home</b></a></p>
+			<p><a href="Assignment1.html"><img src="../images/ASS1.gif" alt="run run run!!!">Assignment 1</a></p>
+			<p><a href="Assignment2.html"><img src="../images/ASS2.gif" alt="run run run!!!">Assignment 2</a></p>
+			<p><a href="Assignment3.html"><img src="../images/ASS3.gif" alt="run run run!!!">Assignment 3</a></p>
+			<p><a href="../Project/project.html"><img src="../images/proj.gif" alt="run run run!!!">Project</a></p>
+		</div>
+		<div class="substance">
+		
+			<script type="text/javascript">
+			//Problem 1 
+			var x=(3*Math.pow(16,2))+(15*16)+(15*Math.pow(16,0));
+			document.write("<h1>Problem 1</h1></br>3FF="+x+"</br>");
+			x=4*Math.pow(8,2)+7*8+7*Math.pow(8,0);
+			document.write("477="+x+"</br></br></br>");
+			//Problem 2
+			document.write("<h1>Problem 2</h1>");
+			document.write("The largest number javascript can print</br>"+Number.MAX_VALUE+"</br>");
+			//Problem 3
+			document.write("<h1>Problem 3</h1>");
+			var str="Hello World!";
+			document.write("Index of the first o in Hello World! is: "+str.indexOf("o")+"</br>");
+			document.write("Index of the last o in Hello World! is: "+str.lastIndexOf("o")+"</br>");
+			//Problem 4
+			document.write("<h1>Problem 4</h1>");
+			var num=3.7;
+			var new_str=num.toString();
+			document.write(num.toString()+"</br>");
+			var new_num=Number(new_str);
+			document.write(new_num);
+			//Problem 5
+			document.write("<h1>Problem 5</h1>");
+			var a=new Boolean(1);
+			var b=new Boolean(0);
+			if((a||b)&&(a<b))
+			{
+				document.write("This branch is true");
+			}
+			else
+			{
+				document.write("This branch is false");
+			}
+			//Problem 6
+			document.write("<h1>Problem 6</h1>");
+			document.write("Math round returns inputting .6: "+Math.round(.6)+
+							"</br>Math random returns: "+Math.random()+
+							"</br>Math max from 5 numbers returns: "+Math.max(.6,.125,.176,2.567,2.566)+
+							"</br>Math min from the same 5 numbers returns: "+Math.min(.6,.125,.176,2.567,2.566)+
+							"</br>Math power function of 2^4 returns: "+Math.pow(2,4)+"</br>");
+			//Problem 7
+			var nul=null;
+			var undef=undefined;
+			document.write("<h1>Problem 7</h1>");
+			(nul==null&&undef==undefined?document.write("Generated numbers are: "+null+" and "+NaN+""):document.write(""));
+			//Problem 8
+			document.write("<h1>Problem 8</h1>");
+			var d1=new Date(2009,1,15);
+			var d2=new Date(2009,5,10);
+			var one_day=1000*60*60*24
+			d2-=d1;
+			d2/=1000*60*60*24;
+			var apart=d2.toFixed(0);
+			document.write("There are: "+apart+"days apart from the dates: Feb 15th, 2009 and June 10th, 2009");
+			//Problem 9
+			document.write("<h1>Problem 9</h1>");
+			var str="Hello";
+			var str2="Hell"+"o";
+			(str==str2?document.write("Strings are compared by values as tested"):document.write("By reference"));
+			document.write("<p align='center'><a href='#TOP'> Back to top</a></p>");
+			</script>
+		</div>
+	</body>
+	</html>

@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>Script 15.1.2</title>
+	<script type="text/javascript">
+		//This function opens a pop-up window. Invoke it from an event handler
+		//or the pop up will probably be blocked.
+		function hello(){
+			var w = window.open();				//Create a new window with no content
+			var d = w.document();				//Get its Document object
+			d.open();							//Start a new document (optional)
+			d.write("<h1>Hello world!</h1>");	//Output the document content
+			d.close();							//End the document
+		}
+	</script>
+	</head>
+	
+	<body>
+	<script type="text/javascript">
+		hello();
+	</script>
+	</body>
+	</html>

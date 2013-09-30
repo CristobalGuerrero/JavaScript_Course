@@ -1,0 +1,16 @@
+<script>
+//this function takes a node n, replaces it in the tree with an element node
+//that represents an html <b> tag, and then makes the origianl node the 
+//child of the new <b> element
+function embolden(n){
+	if(typeof n = "string") n = docuemtn.getElementById(n);
+	var b = document.createElement("b");
+	var parent = n.parentNode;
+	parent.replaceChild(b,n);
+	b.appendChild(n);
+}
+</script>
+
+<p id="p1">This <i>is</i> paragraph #1.</p>
+<p id="p2">This <i>is</i> paragraph #2.</p>
+<button onclick="embolden('p1')">Embolden</button>

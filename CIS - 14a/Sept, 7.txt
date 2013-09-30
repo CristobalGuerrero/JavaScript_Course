@@ -1,0 +1,11 @@
+Create a basic page that links to all the assignments
+
+Don't use spaces for file names, folders or variable names
+
+***Always have semicolons at the end of the expressions in javascript***
+
+Look up the importance of \ for strings in code
+
+Javascript allows adding of strings and numbers
+
+

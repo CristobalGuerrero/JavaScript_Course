@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title></title>
+	</head>
+	
+	<body>
+	<script type="text/javascript">
+	//Example of nested if's
+	var age=55;
+	var working=false;
+	document.write("I am ",age," years old<br/>");
+	if(age>55)
+	{
+		if(!working)
+		{
+			document.write("You are retired<br/>");
+		}
+		else
+		{
+			document.write("You are still employed but wanting to be retired from feeling old<br/>");
+		}
+	}
+	else
+	{
+		document.write("You are not old enough to retire<br/>");
+		if(!working)
+		{
+			document.write("You are looking for work<br/>");
+		}
+	}
+	//without nesting
+	if(age>55&&!working)document.write("You are retired<br/>");
+	if(age>55&&working)document.write("You are still employed but wanting to be retired from feeling old<br/>");
+	if(age<=55)document.write("You are not old enough to retire<br/>");
+	if(age<=55&&!working)document.write("You are looking for work<br/>");
+	
+	</script>
+	</body>
+	</html>

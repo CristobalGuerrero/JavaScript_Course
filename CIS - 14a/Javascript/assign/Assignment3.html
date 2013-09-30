@@ -1,0 +1,109 @@
+<html>
+<head>
+	<title>Home Page</title>
+<link href="../CSS/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	function cubed(a){return (squared(a)*a);}
+	function squared(a){return (a*a);}
+</script>	
+	</head>
+	
+	<body>
+		<h1><img id="banner" src="../images/banner2.jpeg" alt="banner"></h1>
+		<div class="navigate">
+			<h3>Homework Assignments</h3>
+			<p><a href="../index.html"><b>Home</b></a></p>
+			<p><a href="Assignment1.html"><img src="../images/ASS1.gif" alt="run run run!!!">Assignment 1</a></p>
+			<p><a href="Assignment2.html"><img src="../images/ASS2.gif" alt="run run run!!!">Assignment 2</a></p>
+			<p><a href="Assignment3.html"><img src="../images/ASS3.gif" alt="run run run!!!">Assignment 3</a></p>
+			<p><a href="../Project/project.html"><img src="../images/proj.gif" alt="run run run!!!">Project</a></p>
+		</div>
+		<div class="substance">
+		
+	<script type="text/javascript">
+	var d = new Date();//Declare a variable date
+	var month = d.getMonth()+1;//Add 1 to the month because it takes it as an array
+	document.write("This Month with a switch is ");
+	//Finding what month it is with a switch construct
+	switch(month)
+	{
+		//There has to be multiple breaks otherwise it will run the other switches
+		case 1: document.write("January");break;
+		case 2: document.write("February");break;
+		case 3: document.write("March");break;
+		case 4: document.write("April");break;
+		case 5: document.write("May");break;
+		case 6: document.write("June");break;
+		case 7: document.write("July");break;
+		case 8: document.write("August");break;
+		case 9: document.write("September");break;
+		case 10: document.write("October");break;
+		case 11: document.write("November");break;
+		case 12: document.write("December");break;
+	}
+	
+		//Multiple if statements similar to the switch
+		document.write("<br>This Month with multiple if constructs is: ");
+		if(month==1)document.write("January");
+		if(month==2)document.write("February");
+		if(month==3)document.write("March");
+		if(month==4)document.write("April");
+		if(month==5)document.write("May");
+		if(month==6)document.write("June");
+		if(month==7)document.write("July");
+		if(month==8)document.write("August");
+		if(month==9)document.write("September");
+		if(month==10)document.write("October");
+		if(month==11)document.write("November");
+		if(month==12)document.write("December");
+
+		//Using if else constructs to tell what month it is
+		document.write("<br>This Month with multiple if-else constructs is: ");
+		if(month==1)document.write("January");
+		else if(month==2)document.write("February");
+		else if(month==3)document.write("March");
+		else if(month==4)document.write("April");
+		else if(month==5)document.write("May");
+		else if(month==6)document.write("June");
+		else if(month==7)document.write("July");
+		else if(month==8)document.write("August");
+		else if(month==9)document.write("September");
+		else if(month==10)document.write("October");
+		else if(month==11)document.write("November");
+		else if(month==12)document.write("December");
+		else document.write("Not a month in the year");
+		document.write("<br><br><br><br>");
+		//Numbers cubed and squared
+		document.write('<table border="3" cellpadding="4" style="text-align:center" align="center">');
+		document.write('<th colspan="3">Numbers Squared</th>');
+		document.write('<th colspan="3">Numbers Cubed</th>');
+		document.write('<tr>');
+		document.write('<td>Normal</td>');
+		document.write('<td>Array</td>');
+		document.write('<td>Object</td>');
+		document.write('<td>Normal</td>');
+		document.write('<td>Array</td>');
+		document.write('<td>Object</td>');
+		document.write('</tr>');
+	
+		var i=0,size=10, a=new Array();
+		//Array fill
+		for(i;i<=size;i++){a[i]=i;}
+		//Printing for the types
+		for(i=0;i<=size;i++)
+		{
+		document.write('<tr>');
+		document.write('<td>'+i*i+'</td>');
+		document.write('<td>'+a[i]*a[i]+'</td>');
+		document.write('<td>',squared(i),'</td>');
+		document.write('<td>'+i*i*i+'</td>');
+		document.write('<td>'+a[i]*a[i]*a[i]+'</td>');
+		document.write('<td>',cubed(i),'</td>');
+		document.write('</tr>');
+		}
+		document.write('</table>');
+		document.write("<p align='center'><a href='#TOP'> Back to top</a></p>");
+	</script>
+		</div>
+	</body>
+	</html>

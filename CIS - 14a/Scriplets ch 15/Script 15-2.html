@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title></title>
+	<script>
+	//this function is passed a DOM Node object and checks to see if that node 
+	//represents a HTML tag-i.e., if the node is an Element object. It 
+	//recursively calls itslef on each of the children of the node, testing 
+	//them in the same way. It returns the total number of Element objects 
+	//it encounters. If you invoke this function by passing it the 
+	//Document object, it traverses the entire DOM tree.
+	function countTags(n){
+		var numtags = 0;
+		if (n.nodeType == 1)
+			numtags++;
+			var children = n.childNodes;
+			for(var i=0; i<children.length;i++){
+				numtags+=countTags(children[i]);
+			}
+			return numtags;
+	}
+	</script>
+	</head>
+			<!-- here is an example of how the countTags() function might be used -->
+	<body onload="alert('This document has ' + countTags(document) + ' tags')">
+	this is a <i>sample</i> document
+
+		
+	</body>
+	</html>

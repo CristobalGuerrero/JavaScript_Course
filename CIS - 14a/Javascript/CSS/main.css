@@ -1,0 +1,38 @@
+body {
+	margin: 0px 330px 0px 10px;
+	background: black url(../images/bleach_1.png) no-repeat right top fixed;
+	font-family: Verdana, sans-serif;
+}
+
+.substance {
+	background: rgb(70%,70%,50%);
+	margin: 20px 0px 0px 170px;
+	border: double #330000 4px;
+	padding: 5px;
+}
+
+.navigate {
+	width: 150px;
+	height: auto;
+	border: double #330000 4px;
+	float: left;
+	padding: 5px;
+	margin-bottom: 20px;
+	background: rgb(70%,70%,50%);
+	text-align: center;
+}
+
+#banner {
+	background: black;
+	width: 80%;
+}
+
+a:link, a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: green;
+	text-deocration: underline overline;
+}

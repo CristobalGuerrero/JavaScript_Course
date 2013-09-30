@@ -1,0 +1,53 @@
+<html>
+<head>
+	<title></title>
+	</head>
+	
+	<body>
+	<script type="text/javascript">
+	var num=10%3;
+	var mod2=3%10;
+	document.write("10%3= "+num+"</br>3%10= "+mod2);
+	//Learn the shorthand way for if statements
+	//start the assignment for the truth table
+	var x=new Boolean(1);
+	var y=new Boolean(1);
+	var i= 1;
+	document.write('<table border="3", table align="center">');
+	document.write('<tr>');
+	document.write('<th>x</th>');
+	document.write('<th>y</th>');
+	document.write('<th>!x</th>');
+	document.write('<th>x&&y</th>');
+	document.write('<th>x||y</th>');
+	document.write('<th>x^y</th>');
+	document.write('<th>(x^y)^y</th>');
+	document.write('<th>(x^y)^x</th>');
+	document.write('<th>!(x||y)</th>');
+	document.write('<th>!x&&!y</th>');
+	document.write('<th>!(x&&y)</th>');
+	document.write('<th>!x||!y</th>');
+	document.write("</tr>");
+	for(i = 1; i <= 4; i++)
+{
+	document.write('<tr>')
+	document.write('<td align="center">'+(x?'T':'F')+'</td>');
+	document.write('<td align="center">'+(y?'T':'F')+'</td>');
+	document.write('<td align="center">'+(!x?'T':'F')+'</td>');
+	document.write('<td align="center">'+(x&&y?'T':'F')+'</td>');
+	document.write('<td align="center">'+(x||y?'T':'F')+'</td>');
+	document.write('<td align="center">'+(x^y?'T':'F')+'</td>');
+	document.write('<td align="center">'+((x^y)^y?'T':'F')+'</td>');
+	document.write('<td align="center">'+((x^y)^x?'T':'F')+'</td>');
+	document.write('<td align="center">'+(!(x||y)?'T':'F')+'</td>');
+	document.write('<td align="center">'+(!x&&!y?'T':'F')+'</td>');
+	document.write('<td align="center">'+(!x||!y?'T':'F')+'</td>');
+	document.write('<td align="center">'+(!(x&&y)?'T':'F')+'</td>');
+	document.write('</tr>');
+	x=(i>=2)?x=0:x=1;
+	y=(i%2)?y=0:y=1;
+}
+	document.write("</table>");
+	</script>
+	</body>
+	</html>

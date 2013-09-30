@@ -1,0 +1,35 @@
+<!--
+Constructs
+	Sequential
+	Branching-Jump
+		If,If-else,Switch
+	Repetition-looping
+		For,while, Do while
+-->
+
+
+<html>
+<head>
+	<title>Paycheck2</title>
+	</head>
+	
+	<body>
+	<script type="text/javascript">
+	//calculating a paycheck
+	//initialize known values
+	var hours_worked=41;//Hours
+	var pay_rate=10;//Dollars
+	var over_time=40//Time when overtime starts Hours
+	var over_rate=1.5//Overtime rate
+	//Paycheck calculation and print out
+	var pay_check;
+	if(hours_worked<over_time){pay_check=hours_worked*pay_rate;}
+	else{pay_check=over_time*pay_rate+(hours_worked-over_time)*(over_rate*pay_rate);}
+	//Output the results
+	document.write("<h1>Hours Worked="+hours_worked+" (hrs)</h1>");
+	document.write("<h1>Hours Worked="+pay_rate+" ($/hrs)</h1>");
+	document.write("<h1>Hours Worked=$"+pay_check.toFixed(2)+"</h1>");
+
+	</script>
+	</body>
+	</html>

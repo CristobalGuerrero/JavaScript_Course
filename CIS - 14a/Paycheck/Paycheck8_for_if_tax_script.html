@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Paycheck</title>
+</head>
+
+<body>
+<script type="text/javascript">
+	//Calculating a Paycheck
+	//Initialize known values
+	var pay_rate=20;//Dollars
+	document.write("<h1>Pay Rate="+pay_rate+" ($/hr)</h1>");
+	var over_time=40;//Time when overtime starts Hours
+	var over_rate=1.5;//Overtime rate
+	var tax_rate=.10;//percentage of gross
+	var class_envy=400;//Class envy of $400/week<br />
+	var class_rate=2;//Rich mans penalty
+	//Paycheck Calculation
+</script>
+	<table border='1' style='text-align:center'>
+	<tr><th>Hours</th><th>Gross $</th>
+	<th>Tax</th><th>Net $</th></tr>
+<script type="text/javascript">
+	for(var hours_worked=1;hours_worked<=72;hours_worked++){
+		var pay_check=hours_worked*pay_rate;
+		if(hours_worked>over_time)
+	         	pay_check+=(hours_worked-over_time)*
+			            	(over_rate-1)*pay_rate;
+		var tax=pay_check*tax_rate;
+		if(pay_check>class_envy)
+	         tax+=(pay_check-class_envy)*(class_rate-1)*tax_rate;
+		var net_pay_check=pay_check-tax;
+		//Output the results
+		document.write("<tr><td>"+hours_worked+"</td>");
+		document.write("<td>"+pay_check+"</td>");
+		document.write("<td>"+tax+"</td>");
+		document.write("<td>"+net_pay_check+"</td></tr>");
+	}
+</script>
+	</table>
+
+</body>
+</html>

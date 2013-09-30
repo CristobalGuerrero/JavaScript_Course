@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Paycheck</title>
+</head>
+
+<body>
+<script type="text/javascript">
+	//Calculating a Paycheck
+	//Initialize known values
+	var hours_worked=50;//Hours
+	var pay_rate=10;//Dollars
+	var over_time=40;//Time when overtime starts Hours
+	var over_rate=1.5;//Overtime rate
+	//Paycheck Calculation
+	var pay_check;
+	switch(hours_worked<over_time){
+		case true: 
+		          pay_check=hours_worked*pay_rate;
+				  break;
+	    default:
+		          pay_check=over_time*pay_rate+
+		          (hours_worked-over_time)*pay_rate*over_rate;
+	}
+	//Output the results
+	document.write("<h1>Hours Worked="+hours_worked+" (hrs)</h1>");
+	document.write("<h1>Pay Rate="+pay_rate+" ($/hr)</h1>");
+	document.write("<h1>Pay Check=$"+pay_check+"</h1>");
+</script>
+</body>
+</html>

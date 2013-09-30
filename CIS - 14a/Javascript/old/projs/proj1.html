@@ -1,0 +1,155 @@
+<html>
+<head>
+	<title>Project Work in Progress</title>
+	<script type="text/javascript">
+	
+	//Checks to see if numbers were random and then replaces
+	//the repetitive number
+	function computerSet(computer)
+	{
+    var j=1,i=0;
+    while(j<4)
+    {
+        while(i<j)
+        {
+            if(computer[i]==computer[j])
+               {
+                computer[i]=get_random();
+               }
+            else{i++;}
+        }
+        i=0;
+        j++;
+    }
+    return computer;
+    }
+    
+    //get function for random numbers
+    function get_random()
+    {
+    	var ranNum= Math.floor(Math.random()*5)+1;
+    	return ranNum;
+    }
+    
+    //Test to see if the Random numbers were done correctly
+    function trueRandom(computer)
+    {
+    	var counter=0,i=0,j=1;
+    	while(j<4)
+    	{
+        	while(i<j)
+        	{
+        	 if(computer[i]!=computer[j])
+        	    {
+        	       //first loop +4 second 
+        	       counter++;
+        	    }
+            i++;
+        }
+      i=0;
+      j++;
+    }
+    	if(counter==6){return true;}
+    	else{return false;}
+    }
+
+    //Sets the array
+    function setArray()
+    {
+    	for(var i=0;i<4;i++)
+    	{
+        	computer[i]=get_random();
+    	}
+    	//sets the last element=to the first so that 
+    	//everything gets compared
+    	computer[i+1]=computer[0];
+    	return computer;
+    }
+	</script>
+	</head>
+	
+	<body background="../images/background.jpg" style="top:0;left:0;width:100%;height:100%;background-repeat:repeat-x">
+	<table style="margin:auto;border:2;background-color:white">
+			<tr>
+				<td colspan="2"><center><img src="../images/Banner2.jpeg" alt="Welcome Banner" border="3"/></center></td>
+			</tr>
+		
+		<tbody valign="top">
+		<tr>
+			<td  width="100" style="height:100%;background-color:#000000">
+			<div style="text-align:center" >
+					<p>Links</p>
+					<p>
+						<a href="../index.html" style="color:blue;text-decoration:none">
+							<span onmouseover="this.style.color='orange'" onmouseout="this.style.color='blue'">
+								Home
+							</span>
+						</a>
+					</p>
+					<p>
+						<a href="../assign/Assignment1.html" style="color:blue;text-decoration:none">
+							<span onmouseover="this.style.color='orange'" onmouseout="this.style.color='blue'">
+								<img src="../images/ASS1.gif" alt="run run run!!!">Assignment 1
+							</span>
+						</a>
+					</p>
+					<p>
+						<a href="../assign/Assignment2.html" style="color:blue;text-decoration:none">
+							<span onmouseover="this.style.color='orange'" onmouseout="this.style.color='blue'">
+								<img src="../images/ASS2.gif" alt="Charge!!!">Assignment 2
+							</span>
+						</a>
+					</p>
+					<p>
+						<a href="../assign/Assignment3.html" style="color:blue;text-decoration:none">
+							<span onmouseover="this.style.color='orange'" onmouseout="this.style.color='blue'">
+								<img src="../images/ASS3.gif" alt="Charge!!!">Assignment 3
+							</span>
+						</a>
+					</p>
+					<p>
+						<a href="proj1.html" style="color:blue;text-decoration:none">
+							<span onmouseover="this.style.color='orange'" onmouseout="this.style.color='blue'">
+								<img src="../images/PROJ1.gif" alt="project_1">Project 1
+							</span>
+						</a>
+					</p>
+			</div>
+			</td>
+			<td bgcolor="grey">
+	
+	<p>My Project is to recreate the game called mastermind. So far the work that has been done is that</p> 
+	<p>4 numbers that consist of 1-6 will be generated. There is a Boolean check to make sure that the numbers</p>
+	<p>are not repeating. If the numbers repeat which ever index of the array that is caring the data will be</p>
+	<p>regenerated until there are no repeating elements. The numbers will then be replaced with colors as well</p>
+	<p>as images for the finalized project.</p>
+	<p>So far I have a number generator as you can see below by constantly refreshing the pages the numbers</p>
+	<p>are always randomized:</p>
+	
+	<script type="text/javascript">
+	var user,i=0,j=0,size=4,computer=[0,0,0,0,0];
+	var Random=new Boolean();
+	do{
+    computer=setArray();
+    computer=computerSet(computer);
+    Random=trueRandom(computer);
+    }while(!Random);
+    for(i=0;i<4;i++)
+    {
+        document.write(computer[i]+" ");
+    }
+    document.write(Random);
+	</script>
+</td>
+		</tr>
+	</table>
+		<div style="text-align:center;word-spacing:8px">
+		  <a href="mailto:cguerrero10@student.rcc.edu" style="color:blue;text-decoration:none">
+		  	<span onmouseover="this.style.color='yellow'" onmouseout="this.style.color='blue'">Questions/Concerns</span>
+		  </a> |
+		  <a href="http://www.facebook.com/people/Cristobal-Alberto-Leingod-Guerrero/6316528" style="color:blue;text-decoration:none;text-indent:50px;">
+		  	<span onmouseover="this.style.color='yellow'" onmouseout="this.style.color='blue'">Facebook</span>
+		  </a>
+		</div>
+	</body>
+	</html>

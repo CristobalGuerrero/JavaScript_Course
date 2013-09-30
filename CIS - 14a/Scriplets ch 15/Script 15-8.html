@@ -1,0 +1,9 @@
+//reverse the order of the children of node n
+function reverse(n){
+	//create an empty documentFragment as a temporary container
+	var f = document.createDocumentFragment();
+	while(n.lastChild)f.appendchild(n.lastChild);
+	
+	//finally move the children of f all at once back to n, all at once
+	n.appendChild(f);
+	}
